@@ -76,12 +76,49 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <div class=" " id='sections' style="background-image:url('{{ asset('img/background.png') }}');height:550px; background-repeat:no-repeat;background-position:center;-webkit-background-size: cover;
+        {{-- <div class=" " id='sections' style="background-image:url('{{ asset('img/background.png') }}');height:550px; background-repeat:no-repeat;background-position:center;-webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        background-size: cover;">
+        background-size: cover;"> --}}
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
 
-        <div class="container-fluid" style="padding-top:575px;">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="img/background.png" alt="...">
+            <div class="carousel-caption">
+              ...
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/background.png" alt="...">
+            <div class="carousel-caption">
+              ...
+            </div>
+          </div>
+          ...
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      {{-- <h1>hola</h1> --}}
+
+        <div class="container-fluid" style="margin-top:10px;margin-bottom:10px;">
+
             <div class="row">
                 <div class="col-md-4">
                     <span id="ssection-sub" >Realiza tu compra a credito!</span>

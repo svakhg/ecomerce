@@ -52,7 +52,7 @@ ul li{
 #productos{
 
     border-top:5px solid rgb(91, 91, 91);
-    border-bottom:5px solid rgb(91, 91, 91);
+    /*border-bottom:5px solid rgb(91, 91, 91);*/
 
 }
 
@@ -67,6 +67,10 @@ ul li{
 
 /* Productos */
 #description{
+    /*padding: ;*/
+    padding-right:80px;
+    padding-left: 80px;
+    font-size: 6px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -76,11 +80,23 @@ ul li{
     max-height: 105%;       /* fallback */
 
 }
+#box-product {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
 
 
 #addCarrito:hover{
     transform: scale(1.2);
 
+}
+
+.categories:hover{
+    transform:scale(1.2);
+
+}
+.subtitle-categories{
+    text-align: center;
 }
 
 

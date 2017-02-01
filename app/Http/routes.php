@@ -65,30 +65,27 @@ Route::get('payment/status', array(
 
 
 
-/*  Administracion de marin guizar*/
+Route::group(['prefix' => 'admin'], function() {
+	//Productos 
+	//Route::any('/productps/material','ProductosController@TablaMaterial');
+	Route::any('/productos/status', 'ProductosController@StatusUnidad');
+	Route::any('/productos/alls', 'ProductosController@getAlls');
+	Route::any('/productos/unidad/{id}', 'ProductosController@getUnidad');
+	Route::any('/productos/plus/agregar', 'ProductosController@subirUnidad');
+	Route::any('/productos/upload/img/{id}', 'ProductosController@loadImgUnidad');
+	Route::any('/productos/plus', 'ProductosController@getMaterial');
 
-Route::get('admin',function(){
-	return view('Admin.admin_layout');
-});
-Route::get('ventas',function(){
-	return view('Admin.ventas');
-});
-Route::get('productos',function(){
-	return view('Admin.productos');
-});
-Route::get('sliders',function(){
-	return view('Admin.slider');
-});
+	Route::controller('/productos', 'ProductosController');
 
-Route::get('loadimg',function(){
-	return view('Admin.addimg');
-});
+	//Sliders
+	Route::any('/sliders/load','SliderController@getSliders');
+	Route::any('/sliders/status/{id}','SliderController@ChangeStatus');
+	Route::any('/sliders/delete/{id}','SliderController@deleteSlider');
+	Route::post('/sliders/upload','SliderController@UploadImg');
+	Route::controller('/sliders','SliderController');
 
 
-Route::get('add-new-slider',function(){
-	return view('Admin.addslider');
+    Route::controller('/', 'InicioController');
+    
 });
-
-/* rutas de formularios para administrador*/
-Route::post('/cargo-slider', 'Admin\LoadController@loadimage');
 
