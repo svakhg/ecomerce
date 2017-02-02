@@ -86,14 +86,18 @@ ul li{
 }
 
 
+
 #addCarrito:hover{
     transform: scale(1.2);
 
 }
 
 .categories:hover{
-    transform:scale(1.2);
+    transform:scale(1.1);
 
+}
+.categories{
+    transition: all .2s ease-in-out;  
 }
 .subtitle-categories{
     text-align: center;

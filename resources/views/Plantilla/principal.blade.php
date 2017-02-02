@@ -19,6 +19,35 @@
        <!-- My styles -->
        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
+       {{-- Slick slider --}}
+       <!-- Slider Slick-->
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+        <style type="text/css">
+          html, body {
+            margin: 0;
+            padding: 0;
+          }
+          * {
+            box-sizing: border-box;
+          }
+          .slider {
+            width: 85%;
+            margin: 100px auto;
+          }
+          .slick-slide {
+            margin: 0px 20px;
+          }
+          .slick-slide img {
+            width: 100%;
+          }
+          .slick-prev:before,
+          .slick-next:before {
+            color: black;
+          }
+          </style>
+
 
     </head>
     <body>
@@ -32,7 +61,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img class='nav-logo' src="{{ asset('img/logonav.png') }}" alt="" /></a>
+                    <a class="navbar-brand" href="/"><img class='nav-logo' src="{{ asset('img/logonav.png') }}" alt="" /></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,7 +89,8 @@
                         <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden=""></i></button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a id="nav-right-session" href="/cart/show/">Carrito <span id="car-total">0</span></a></li>
+                        <li><a id="nav-right-session" href="/cart/show/"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+Carrito <span id="car-total">0</span></a></li>
                         {{-- <li class="dropdown">
                             <a id="nav-right-session" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Iniciar Sesion <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -95,7 +125,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
         @foreach($sliders as $key)
-            @if($key->id == 8)
+            @if($key->id == 12)
               <div class="item active">
                 <img src="/storage/{{$key->url}}" alt="...">
                 <div class="carousel-caption">
@@ -125,7 +155,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-      {{-- <h1>hola</h1> --}}
+     <!--
 
         <div class="container-fluid" style="margin-top:10px;margin-bottom:10px;">
 
@@ -147,12 +177,10 @@
                     <img class="oxxo-logo" src="{{ asset('img/oxxo.png') }}" alt="" />
                 </div>
             </div>
-
+-->
 
 
             @yield('content')
-
-
 
 
         </div>
@@ -169,4 +197,30 @@
      <!-- Include all compiled plugins (below), or include individual files as needed -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"> </script>
      <script src="{{ asset('js/eventos.js') }}"></script>
+
+
+     <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).on('ready', function() {
+  $(".regular").slick({
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3
+  });
+  $(".center").slick({
+    dots: true,
+    infinite: true,
+    centerMode: true,
+    slidesToShow: 3,
+    slidesToScroll: 3
+  });
+  $(".variable").slick({
+    dots: true,
+    infinite: true,
+    variableWidth: true
+  });
+});
+</script>
+
 </html>

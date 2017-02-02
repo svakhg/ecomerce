@@ -49,7 +49,7 @@
                       echo "<td>".$key['MARCA']."</td>";
                       echo "<td>".$key['MODELO']."</td>";
                       echo "<td>".$key['precioventa3']."</th>";
-                      echo "<td><a class='label pull-right bg-green'  href=JavaScript:accion('".$key['IDBARRAS']."'); ><span class='fa fa-cart-plus'></span></th>";
+                      echo "<td><a class='label pull-right bg-green'  href=Javascript:accion('".$key['IDBARRAS']."'); ><span class='fa fa-cart-plus'></span></th>";
                       echo "</td>";
                     }
                   ?>
@@ -76,42 +76,51 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Elejeir Categoria</h4>
+        <h4 class="modal-title">Elejeir Categoria &nbsp  </h4>
       </div>
       <div class="modal-body">
             
               <div class="box-body">
                 <div class="form-group">
                   <div class="row">
+
                     <div class="col-md-6">
+                      
+                        <a href="Javascript:loadproduct(1)"><img style="width: 40px;height: 40px;" src="/../../../img/icono1.png">&nbsp Opcion 1</a>
+
                       <div class="radio">
-                        <img style="width: 40px;height: 40px;" src="/../../../img/icono1.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 1</label>
-                      </div>
-                      <div class="radio">
-                        <img style="width: 40px;height: 40px;" src="/../../../img/icono2.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 2</label>
+                        <a href="Javascript:loadproduct(2)"><img style="width: 40px;height: 40px;" src="/../../../img/icono2.png">&nbsp Opcion 2</a>
                       </div>
                       <div class="radio ">
-                        <img style="width: 40px;height: 40px;" src="/../../../img/icono3.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 3</label>
+                        <a href="Javascript:loadproduct(3)"><img style="width: 40px;height: 40px;" src="/../../../img/icono3.png">&nbsp Opcion 3</a>
                       </div>
+                      
                     </div>
                     <div class="col-md-6">
                       <div class="radio">
-                        <img style="width: 40px;height: 40px;" src="/../../../img/icono4.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 4</label>
+                        <a href="Javascript:loadproduct(4)"><img style="width: 40px;height: 40px;" src="/../../../img/icono4.png">Opcion 4</a>
                       </div>
                       <div class="radio">
-                        <img style="width: 40px;height: 40px;" src="/../../../img/icono5.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 5</label>
+                        <a href="Javascript:loadproduct(5)"><img style="width: 40px;height: 40px;" src="/../../../img/icono5.png">&nbsp Opcion 5</a>
                       </div>
                       <div class="radio ">
-                        <img style="width: 40px;height: 40px;" src="/../../../img/icono6.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 6</label>
+                        <a href="Javascript:loadproduct(6)"><img style="width: 40px;height: 40px;" src="/../../../img/icono6.png">&nbsp Opcion 6</a>
                       </div>
+                      
                     </div>
                   </div>
+                  <span id="opcioneleguida"></span>
                 </div>
               </div>
               <!-- /.box-body -->
-              <a href="JavaScript:loadproduct()"></a>
+              
       </div>
       <div class="modal-footer">
+        <button class="btn  pull-left bg-green" id="yes">Cargar
+                    <div class="overlay">
+                      <i class="fa fa-refresh fa-spin"></i>
+                    </div>        
+        </button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         
       </div>
@@ -126,6 +135,9 @@
 <script src="{{ asset('subadmin/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <script>
   $(function () {
+    var cargar = 0;
+    var product = null;
+    $('.overlay').hide();
     $("#example1").DataTable({
       responsive: true,
       processing: true,
@@ -138,10 +150,43 @@
 
   function accion(argumento) {
     $('#exampleModal').modal('show');
+    product = argumento;
   }
-  function loadproduct() {
-    var  x = //create 
+  function loadproduct(carga) {
+    $('#opcioneleguida').text('cagaras a este prodcuto la categoria'+carga);
+    cargar = carga;
   }
+  $( "#yes" ).click(function() {
+    
+      $.ajax({
+        type:'GET',
+        url: '/admin/productos/plus/agregar/?categoria='+cargar+'&argumento=x',
+        data: {prodcuto:product},
+      beforeSend: function() {
+          $('.overlay').show();
+      },
+      success: function(data) {
+        console.log(data);
+        swal(
+          'Nuevo Producto cargado!',
+          'Este producto  aparecera en la lista de prodcutos en linea!',
+          'success'
+        )          
+          $('#exampleModal').modal('hide');
+          cargar = 0;
+          product = null;
+           $('#opcioneleguida').text(' ');        
+      },
+      complete: function() {
+          $('.overlay').hide();
+          cargar = 0;
+          product = null;
+          $('#opcioneleguida').text(' ');
+      }})    
+    
+  });  
+ 
+
 </script>
 
 @stop

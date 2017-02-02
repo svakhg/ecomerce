@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use App\Material;
 use App\VWMaterial_;
+use App\Productos;
 use DB;
 class ProductosController extends AdminBaseController
 {
@@ -76,6 +77,7 @@ class ProductosController extends AdminBaseController
     public function getMaterial(){
         //$materiales = VWMaterial_::paginate(20);
         $materiales = Material::paginate(20);
+
         //return $materiales;
         $this->layout->section = "Inicio";
         return $this->setContent('admin.producto.productos_fuera', $materiales->toArray(), "Productos Outs");
@@ -83,25 +85,29 @@ class ProductosController extends AdminBaseController
 
     ///a gregar a la tabla de ventas
     public function subirUnidad(){
+        $codigo = Input::get("categoria");
+        $pro = Input::get('prodcuto');
         
-        $codigo = Input::get("codigo");
-        $material = Material::find($codigo);
-        $producto = new Prodcuto();
+        //$material = Material::where('IDCODIGO',$pro)->get();
+        $material = DB::table('material')->where('IDBARRAS', $pro)->first();
+        
+        $producto = new Productos();
         $producto->nombre = $material->NOMBRECORTO;
-        $prodcuto->marca = $material->MARCA;
-        $prodcuto->modelo =$material->MODELO;
-        $prodcuto->precio = $material->precioventa3;
-        $prodcuto->descripcion = "";
-        $$prodcuto->status = 0;
-        $prodcuto->stock = 0;
-        $prodcuto->save();
+        $producto->marca = $material->MARCA;
+        $producto->modelo =$material->MODELO;
+        $producto->precio = $material->precioventa3;
+        $producto->descripcion = "";
+        $producto->status = 0;
+        $producto->stock = 0;
+        $producto->categoria = $codigo;
+        $producto->save();
 
         return $producto;
     }
 
     public function getUnidad(){
-        $producto = Prodcuto::find(Input::get('prodcuto'));
-        return ['name' => $producto->nombre,'marca' => $prodcuto->marca, 'modelo' => $prodcuto->modelo , 'precio'=>$prodcuto->precio ,'stoke' =>$prodcuto->stock];
+        $producto = producto::find(Input::get('producto'));
+        return ['name' => $producto->nombre,'marca' => $producto->marca, 'modelo' => $producto->modelo , 'precio'=>$producto->precio ,'stoke' =>$producto->stock];
     }
 
     public function loadImgUnidad(){
@@ -131,10 +137,11 @@ class ProductosController extends AdminBaseController
         if(!empty($busqueda)){
 
         }else{
-            $prodcutos  = Material::orderBy('marca', 'ASC')->paginate($paginas);
+            $prodcutos  = Productos::orderBy('categoria', 'ASC')->get();
         }
 
         $resultados = [];
+        
         foreach ($prodcutos as $key) {
             $resultado = [
                 $key->nombre,
@@ -142,8 +149,8 @@ class ProductosController extends AdminBaseController
                 $key->modelo,
                 $key->precio,
                 $key->stock,
-                "<span><a href='Javascript:changeStatus(".$key->id.")'>status</a></span>
-                <span><a href='Javascript:changeStoke(".$key->id.")'>stoke</a></span>"
+                '<img style="width: 40px;height: 40px;" src="/../img/icono'.$key->categoria.'.png">',
+                "<span><a href='Javascript:changeStatus(".$key->id.")'>status</a></span><span><a href='Javascript:changeStoke(".$key->id.")'>stoke</a></span>"
             ];
             array_push($resultados, $resultado);
         }
@@ -151,5 +158,11 @@ class ProductosController extends AdminBaseController
         return ["recordsTotal" => $prodcutos->count(), "recordsFiltered" => $prodcutos->count(),"data" =>$resultados];
 
     }
+
+    public function subirUnidad3(){
+        $codigo = Input::get("categoria");
+        $prodcuto = Input::get('prodcuto');
+        return $codigo." espacio ".$prodcuto;
+    }    
 
 }

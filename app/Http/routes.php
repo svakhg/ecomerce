@@ -17,7 +17,7 @@
  //rutas de lagding page 
 Route::get('/', 'Site\PageController@getInit');
 Route::get('/material/{marca}', 'Site\PageController@getByMacar');
-Route::get('/materiales/{categoria}', 'Site\PageController@getByCat');
+Route::any('/comprar', 'Site\PageController@getByCat');
 Route::get('/test', 'Site\ConecktaController@getTest');
 Route::get('/total', 'Site\CartController@getTotalProductos');
 Route::post('/cargo', 'Site\ConecktaController@cargo');

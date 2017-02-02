@@ -33,12 +33,13 @@
               <table id="data-table-prodcutos" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Producto</th>
+                  <th>Nombre</th>
                   <th>Marca</th>
+                  <th>Modelo</th>
                   <th>Precio</th>
-                  <th>stock</th>
-                  <th>status</th>
-                  <th>Acciones</th>
+                  <th>Stock</th>
+                  <th>Categoria</th>
+                  <th>accion</th>
                 </tr>
                 </thead>
                 <tbody>

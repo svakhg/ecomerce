@@ -8,25 +8,28 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use Cart;
+use App\Productos;
+use App\Slider;
 class CartController extends Controller
 {
  // 
     public function show()
     {
         //dd(Cart::content());
-        
-        return view("shop.shop")->with("cart",Cart::content());
+        $slider = Slider::all();
+        return view("shop.shop")->with("cart",Cart::content())->with('sliders',$slider);
 
     }
 
     public function add($produto)
     {
         // Por el momento no se le agrega la cantidad
-        $users = DB::table('material')->where('IDCODIGO', '=', $produto)->first();
+        $users = Productos::find($produto);
         //id-name-cantidad-precio-otra_cosa
-        Cart::add($users->IDCODIGO,$users->NOMBRECORTO, 1, $users->precioventa1);
+        $slider = Slider::all();
+        Cart::add($users->id,$users->nombre, 1, $users->precio);
 
-        return view("shop.shop")->with("cart",Cart::content());
+        return view("shop.shop")->with("cart",Cart::content())->with('sliders',$slider);
     }
 
     public function update($idproducto,$quantity)

@@ -71,7 +71,7 @@ class SliderController extends AdminBaseController
             if ($key->status == 0) {
                 $span = "<span class='label pull-right bg-yellow' ><a style='color:white;' class='fa fa-refresh' href='Javascript:status(".$key->id.")' ></a></span><span class='label pull-right bg-red delete' ><a  id='".$key->id."' style='color:white;' class='fa fa-remove' style='color:white;' href='Javascript:eliminar(".$key->id.")' ></a></span> <span id='eye".$key->id."' title='Desactivado' style='color:red;' class='fa fa-eye' ></span>";
             }else{
-                $span = "<span class='label pull-right bg-yellow'><a style='color:white;' class='fa fa-refresh' href='Javascript:status(".$key->id.")' ></a></span><span class='label pull-right bg-red delete' ><a id='".$key->id."' style='color:white;' class='fa fa-remove' style='color:white; href='Javascript:eliminar(".$key->id.")' ></a></span>  <span id='eye".$key->id."' title='Activado' style='color:green;' class='fa fa-eye' ></span>";
+                $span = "<span class='label pull-right bg-yellow'><a style='color:white;' class='fa fa-refresh' href='Javascript:status(".$key->id.")' ></a></span><span class='label pull-right bg-red delete' ><a id='".$key->id."' style='color:white;' class='fa fa-remove' style='color:white;' href='Javascript:eliminar(".$key->id.")' ></a></span>  <span id='eye".$key->id."' title='Activado' style='color:green;' class='fa fa-eye' ></span>";
             }
             $resultado  = [
                 "<img style='width: 300px;width: 300px;'  src='/../../storage/".$key->url."'>",

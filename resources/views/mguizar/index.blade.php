@@ -4,8 +4,7 @@
     @section('content')
 
         @include('mguizar.categorias')
-        @include('mguizar.productos')
-
+        @include('mguizar.sliderProductos')
         @include('mguizar.infosection')
 
 
