@@ -7,15 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Slider;
 class PageController extends Controller
 {
 
 
     public function getInit()
     {
+        $slider = Slider::all();
     	$categorias = DB::table('material')->select('LINEA')->distinct()->get();
     	$marca = DB::table('material')->select('MARCA')->distinct()->paginate(30);
-    	return view('mguizar.index')->with('categoria',$categorias)->with('marca',$marca);
+    	return view('mguizar.index')->with('categoria',$categorias)->with('marca',$marca)->with('sliders',$slider);
     }
 
     public function getByMacar($marca)

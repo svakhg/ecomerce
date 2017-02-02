@@ -49,7 +49,7 @@
                       echo "<td>".$key['MARCA']."</td>";
                       echo "<td>".$key['MODELO']."</td>";
                       echo "<td>".$key['precioventa3']."</th>";
-                      echo "<td><a class='label pull-right bg-green'  href='JavaScript:accion(".$key['IDBARRAS']."); '><span class='fa fa-cart-plus'></span></th>";
+                      echo "<td><a class='label pull-right bg-green'  href=JavaScript:accion('".$key['IDBARRAS']."'); ><span class='fa fa-cart-plus'></span></th>";
                       echo "</td>";
                     }
                   ?>
@@ -71,7 +71,53 @@
   </div>
 </div>
 
-
+<div id="exampleModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Elejeir Categoria</h4>
+      </div>
+      <div class="modal-body">
+            
+              <div class="box-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="radio">
+                        <img style="width: 40px;height: 40px;" src="/../../../img/icono1.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 1</label>
+                      </div>
+                      <div class="radio">
+                        <img style="width: 40px;height: 40px;" src="/../../../img/icono2.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 2</label>
+                      </div>
+                      <div class="radio ">
+                        <img style="width: 40px;height: 40px;" src="/../../../img/icono3.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 3</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="radio">
+                        <img style="width: 40px;height: 40px;" src="/../../../img/icono4.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 4</label>
+                      </div>
+                      <div class="radio">
+                        <img style="width: 40px;height: 40px;" src="/../../../img/icono5.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 5</label>
+                      </div>
+                      <div class="radio ">
+                        <img style="width: 40px;height: 40px;" src="/../../../img/icono6.png">&nbsp&nbsp<label><input type="radio" name="optradio">&nbspOption 6</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <a href="JavaScript:loadproduct()"></a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 @stop
 
@@ -91,7 +137,10 @@
   });
 
   function accion(argumento) {
-    alert(argumento);
+    $('#exampleModal').modal('show');
+  }
+  function loadproduct() {
+    var  x = //create 
   }
 </script>
 

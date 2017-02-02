@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-
+use App\Slider;
 class AdminBaseController extends BaseController
 {
 
@@ -32,6 +32,8 @@ class AdminBaseController extends BaseController
 
     public function setContent($view, $data = [], $section = "Home")
     {
+
+        
         $this->layout->section = $section;
         return $this->layout->nest('child', $view, $data);
     }    

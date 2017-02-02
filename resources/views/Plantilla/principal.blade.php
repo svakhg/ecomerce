@@ -83,26 +83,36 @@
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <?php
+              for ($i=0; $i < count($sliders) ; $i++) { 
+                 if($i==0)
+                  echo "<li data-target='#carousel-example-generic' data-slide-to='".$i."' class='active'></li>";
+                echo "<li data-target='#carousel-example-generic' data-slide-to='".$i."' ></li>";
+              } 
+            ?>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="img/background.png" alt="...">
-            <div class="carousel-caption">
-              ...
-            </div>
-          </div>
+        @foreach($sliders as $key)
+            @if($key->id == 8)
+              <div class="item active">
+                <img src="/storage/{{$key->url}}" alt="...">
+                <div class="carousel-caption">
+                  ...
+                </div>
+              </div>
+            @else
           <div class="item">
-            <img src="img/background.png" alt="...">
+            <img src="/storage/{{$key->url}}" alt="...">
             <div class="carousel-caption">
               ...
             </div>
           </div>
+          @endif
+          @endforeach
           ...
+
         </div>
 
         <!-- Controls -->
