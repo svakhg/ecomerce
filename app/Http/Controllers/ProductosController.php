@@ -119,6 +119,13 @@ class ProductosController extends AdminBaseController
 
     }
 
+    public function getStoke($id){
+        $produc = Productos::find($id);
+        $produc->stock = Input::get('sotock_modificade');
+        $produc->save();
+        return ['producto' => $id , 'error' => 0 , 'menssage' => 'Stock Modificado'];
+    }
+
     public function getAlls(){
         $busqueda = Input::get("search.value");
         $inicio = Input::get("start");
@@ -133,9 +140,9 @@ class ProductosController extends AdminBaseController
             $paginas = 1;
 
 
-        $productos = null;
+        $prodcutos = null;
         if(!empty($busqueda)){
-
+            $prodcutos  = Productos::where('nombre', 'LIKE', '%'.$busqueda.'%')->get();
         }else{
             $prodcutos  = Productos::orderBy('categoria', 'ASC')->get();
         }
@@ -150,7 +157,7 @@ class ProductosController extends AdminBaseController
                 $key->precio,
                 $key->stock,
                 '<img style="width: 40px;height: 40px;" src="/../img/icono'.$key->categoria.'.png">',
-                "<span><a href='Javascript:changeStatus(".$key->id.")'>status</a></span><span><a href='Javascript:changeStoke(".$key->id.")'>stoke</a></span>"
+                "<span><a class='btn btn-info btn-flat fa fa-edit' href='Javascript:changeStatus(".$key->id.")'></a></span><span><a  class='btn btn-info btn-danger fa fa-edit' href='Javascript:openModalStock(".$key->id.",".$key->stock.")'></a></span><span><a class='btn btn-info btn-danger fa fa-camera-retro' href='Javascript:addimg(".$key->id.")'></a></span>"
             ];
             array_push($resultados, $resultado);
         }

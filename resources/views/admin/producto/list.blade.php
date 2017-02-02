@@ -59,6 +59,36 @@
   </div>
 </div>
 
+<div id="exampleModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Cargar Stock &nbsp  </h4>
+      </div>
+      <div class="modal-body">
+            
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Numero de Stock</label>&nbsp<input type="text" id="stock_nuevo">
+                </div>
+              </div>
+              <!-- /.box-body -->
+              
+      </div>
+      <div class="modal-footer">
+        <button class="btn  pull-left bg-green" id="yes">Cargar
+                    <div class="overlay">
+                      <i class="fa fa-refresh fa-spin"></i>
+                    </div>        
+        </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
 
 @stop
@@ -69,7 +99,7 @@
 
 <script>
   $(function () {
-    $("#example1").DataTable();
+     
 
     $('#data-table-prodcutos').DataTable({
       responsive: true,
@@ -77,41 +107,49 @@
       serverSide: true,
       ajax: "/admin/productos/alls",
       iDisplayLength: 10
-    });    /*
-    $('#data-table-prodcutos').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      
-      "autoWidth": true,
-      "language":{
-          "sProcessing":     "Procesando...",
-          "sLengthMenu":     "Mostrar _MENU_ registros",
-          "sZeroRecords":    "No se encontraron resultados",
-          "sEmptyTable":     "Ningún dato disponible en esta tabla",
-          "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-          "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-          "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-          "sInfoPostFix":    "",
-          "sSearch":         "Buscar:",
-          "sUrl":            "",
-          "sInfoThousands":  ",",
-          "sLoadingRecords": "Cargando...",
-          "oPaginate": {
-              "sFirst":    "Primero",
-              "sLast":     "Último",
-              "sNext":     "Siguiente",
-              "sPrevious": "Anterior"
-          },
-          "oAria": {
-              "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-              "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-          }
-      }
-    });*/
+    });    
   });
+  function openModalStock(id,stock) {
+
+    $('#exampleModal').modal('show'); 
+    $('#stock_nuevo').val(stock);
+    $('.overlay').hide();
+
+     $( "#yes" ).click(function() {
+          var identicica = $('#stock_nuevo').val();
+            $.ajax({
+              type:'GET',
+              url: '/admin/productos/stock/'+id+'/?sotock_modificade='+identicica,
+            beforeSend: function() {
+                $('.overlay').show();
+            },
+            success: function(data) {
+              console.log(data);
+              $('#data-table-prodcutos').DataTable().ajax.reload(null, false);
+              swal(
+                'Unidad Cargada a Stock',
+                'Este producto aparecera con un stock de'+identicica,
+                'success'
+              )          
+                $('#exampleModal').modal('hide');
+                
+            },
+            complete: function() {
+                $('.overlay').hide();
+                
+
+            }})    
+          
+        });
+  }
+
+
+   function changeStatus(argument) {
+     alert(argument)
+   }
+ 
+
+
 </script>
 
 @stop

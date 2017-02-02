@@ -125,7 +125,7 @@ Carrito <span id="car-total">0</span></a></li>
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
         @foreach($sliders as $key)
-            @if($key->id == 12)
+            @if($key->id == 16)
               <div class="item active">
                 <img src="/storage/{{$key->url}}" alt="...">
                 <div class="carousel-caption">
