@@ -110,8 +110,8 @@ class ProductosController extends AdminBaseController
         return ['name' => $producto->nombre,'marca' => $producto->marca, 'modelo' => $producto->modelo , 'precio'=>$producto->precio ,'stoke' =>$producto->stock];
     }
 
-    public function loadImgUnidad(){
-        
+    public function loadImgUnidad($id){
+        return [Input::get('img'), Input::get('nombre')];
     }
 
     // cambiar status

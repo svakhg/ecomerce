@@ -72,7 +72,7 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::any('/productos/alls', 'ProductosController@getAlls');
 	Route::any('/productos/unidad/{id}', 'ProductosController@getUnidad');
 	Route::any('/productos/plus/agregar', 'ProductosController@subirUnidad');
-	Route::any('/productos/upload/img/{id}', 'ProductosController@loadImgUnidad');
+	Route::any('/productos/upload/img/', 'ProductosController@loadImgUnidad');
 	Route::any('/productos/plus', 'ProductosController@getMaterial');
 
 	Route::controller('/productos', 'ProductosController');

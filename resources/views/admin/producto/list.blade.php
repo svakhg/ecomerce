@@ -89,7 +89,41 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<div id="exampleModal2" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Cargar Stock &nbsp  </h4>
+      </div>
+      <div class="modal-body">
+            
+              <div class="box-body">
+              <form id="sendimg"  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre">  
+                </div>
+                <div class="form-group">
+                    <label>Imagen</label>
+                    <input type="file" name="img">  
+                </div>
+              
 
+              </div>
+              <!-- /.box-body -->
+              
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn  pull-left bg-green" >       
+      
+        </form>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 @stop
 
@@ -100,6 +134,21 @@
 <script>
   $(function () {
      
+
+    $( "sendimg" ).submit(function( event ) {
+            $.ajax({
+              type:'POST',
+              url: '/productos/upload/img/'
+              data:{name:"name",forma:}
+            success: function(data) {
+              console.log(data);
+              return;
+                
+            }
+        })
+      event.preventDefault();
+    });
+
 
     $('#data-table-prodcutos').DataTable({
       responsive: true,
@@ -136,7 +185,6 @@
             },
             complete: function() {
                 $('.overlay').hide();
-                
 
             }})    
           
@@ -145,7 +193,7 @@
 
 
    function changeStatus(argument) {
-     alert(argument)
+      $('#exampleModal2').modal('show');
    }
  
 
