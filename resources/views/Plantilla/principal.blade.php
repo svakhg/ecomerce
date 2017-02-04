@@ -129,20 +129,19 @@ Carrito <span id="car-total">0</span></a></li>
               <div class="item active">
                 <img src="/storage/{{$key->url}}" alt="...">
                 <div class="carousel-caption">
-                  ...
+                  
                 </div>
               </div>
             @else
           <div class="item">
             <img src="/storage/{{$key->url}}" alt="...">
             <div class="carousel-caption">
-              ...
+            
             </div>
           </div>
           @endif
           @endforeach
-          ...
-
+          
         </div>
 
         <!-- Controls -->

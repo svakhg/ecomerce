@@ -39,6 +39,7 @@
                   <th>Precio</th>
                   <th>Stock</th>
                   <th>Categoria</th>
+                  <th>Imagen</th>
                   <th>accion</th>
                 </tr>
                 </thead>
@@ -99,10 +100,9 @@
       <div class="modal-body">
             
               <div class="box-body">
-              <form id="sendimg"  enctype="multipart/form-data">
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" name="nombre">  
+              <form id="sendimg" method="POST" action="/admin/productos/upload/img/" enctype="multipart/form-data">
+              <input type="hidden" id="identificador" name="identificador">  
+                <div class="form-group"> 
                 </div>
                 <div class="form-group">
                     <label>Imagen</label>
@@ -125,6 +125,36 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<div id="modalImgen" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Imagen de producto &nbsp  </h4>
+      </div>
+      <div class="modal-body">
+                          <div class="overlay2">
+                      <i class="fa fa-refresh fa-spin"></i>
+                    </div>  
+           <div class="box-body">
+             <img id="cargarImagenModal" src="/img/no.png">
+           </div>
+              
+      </div>
+      <div class="modal-footer">   
+      
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+
+
 @stop
 
 @section('scripts')
@@ -135,19 +165,7 @@
   $(function () {
      
 
-    $( "sendimg" ).submit(function( event ) {
-            $.ajax({
-              type:'POST',
-              url: '/productos/upload/img/'
-              data:{name:"name",forma:}
-            success: function(data) {
-              console.log(data);
-              return;
-                
-            }
-        })
-      event.preventDefault();
-    });
+
 
 
     $('#data-table-prodcutos').DataTable({
@@ -156,13 +174,18 @@
       serverSide: true,
       ajax: "/admin/productos/alls",
       iDisplayLength: 10
-    });    
+    });
+
+
   });
+
+
   function openModalStock(id,stock) {
 
     $('#exampleModal').modal('show'); 
     $('#stock_nuevo').val(stock);
     $('.overlay').hide();
+    $('.overlay2').hide();
 
      $( "#yes" ).click(function() {
           var identicica = $('#stock_nuevo').val();
@@ -190,10 +213,53 @@
           
         });
   }
-
+function mostrarImg(argument) {
+  $("#cargarImagenModal").attr('src', '/img/no.png');
+  $('#modalImgen').modal('show');
+  $.ajax({
+    type:'GET',
+    url: '/admin/productos/img/'+argument,
+    beforeSend: function() {
+      $('.overlay2').show();
+    },
+    success: function(data) {
+      console.log(data);
+      $("#cargarImagenModal").attr('src', data);
+    },
+    complete: function() {
+      $('.overlay2').hide();
+    }}) 
+}
 
    function changeStatus(argument) {
       $('#exampleModal2').modal('show');
+      $('#identificador').val(argument);
+
+
+
+
+
+
+
+
+
+
+      /*
+    $( "#sendimg" ).submit(function( event ) {
+          alert("ok");
+            $.ajax({
+              type:'POST',
+              url: '/admin/productos/upload/img/',
+              data:new FormData(this),
+            success: function(data) {
+              console.log(data);
+                alert("oki");
+            }
+        })
+
+
+      event.preventDefault();
+    });*/
    }
  
 

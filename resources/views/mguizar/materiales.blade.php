@@ -7,8 +7,12 @@
 
     @foreach($productos as $porduct)
         <div class="col-md-4" id="box-product" style="text-align:center;line-height:105%;">
+              <?php if($porduct->url != ""){
+                echo "<img src='/storage/".$porduct->url."'  style='width:50%; height: 190px;'>";
+                }else{
+                  echo "<img src='/img/no.png' style='width:50%;height: 190px;' >";
+                } ?>
             
-            <img style="width:50%;" src="{{ asset('img/torreyy.png') }}" alt="" />
             <h4>Producto: {{$porduct->nombre}}</h4>
             <h4>Modelo: {{$porduct->modelo}}</h4>
             <h4>Marca: {{$porduct->marca}}</h4>

@@ -68,11 +68,12 @@ Route::get('payment/status', array(
 Route::group(['prefix' => 'admin'], function() {
 	//Productos 
 	//Route::any('/productps/material','ProductosController@TablaMaterial');
+	Route::any('/productos/img/{id}', 'ProductosController@ImagenLoad');
 	Route::any('/productos/stock/{id}', 'ProductosController@getStoke');
 	Route::any('/productos/alls', 'ProductosController@getAlls');
 	Route::any('/productos/unidad/{id}', 'ProductosController@getUnidad');
 	Route::any('/productos/plus/agregar', 'ProductosController@subirUnidad');
-	Route::any('/productos/upload/img/', 'ProductosController@loadImgUnidad');
+	Route::post('/productos/upload/img/', 'ProductosController@cargarimagen');
 	Route::any('/productos/plus', 'ProductosController@getMaterial');
 
 	Route::controller('/productos', 'ProductosController');

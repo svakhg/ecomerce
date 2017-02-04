@@ -9,6 +9,8 @@ use App\Material;
 use App\VWMaterial_;
 use App\Productos;
 use DB;
+use Storage;
+use File;
 class ProductosController extends AdminBaseController
 {
 
@@ -110,8 +112,15 @@ class ProductosController extends AdminBaseController
         return ['name' => $producto->nombre,'marca' => $producto->marca, 'modelo' => $producto->modelo , 'precio'=>$producto->precio ,'stoke' =>$producto->stock];
     }
 
-    public function loadImgUnidad($id){
-        return [Input::get('img'), Input::get('nombre')];
+    public function cargarimagen(Request $request){
+        $id = $request['identificador'];
+        $producto = Productos::find($id);
+        $file = $request->file('img');
+        $nombre = $file->getClientOriginalName();
+        Storage::disk('public')->put($nombre,  File::get($file));
+        $producto->url = $nombre;
+        $producto->save();
+        return redirect()->back();
     }
 
     // cambiar status
@@ -150,6 +159,12 @@ class ProductosController extends AdminBaseController
         $resultados = [];
         
         foreach ($prodcutos as $key) {
+            $imagen = ' ';
+            if($key->url != ""){
+                $imagen = '<a href="Javascript:mostrarImg('.$key->id.');" ><img style="width: 40px;height: 40px;" src="/../storage/'.$key->url.' "></a>';
+            }else{
+                $imagen = '<img style="width: 40px;height: 40px;" src="/../img/no.png">';
+            }
             $resultado = [
                 $key->nombre,
                 $key->marca,
@@ -157,7 +172,9 @@ class ProductosController extends AdminBaseController
                 $key->precio,
                 $key->stock,
                 '<img style="width: 40px;height: 40px;" src="/../img/icono'.$key->categoria.'.png">',
-                "<span><a class='btn btn-info btn-flat fa fa-edit' href='Javascript:changeStatus(".$key->id.")'></a></span><span><a  class='btn btn-info btn-danger fa fa-edit' href='Javascript:openModalStock(".$key->id.",".$key->stock.")'></a></span><span><a class='btn btn-info btn-danger fa fa-camera-retro' href='Javascript:addimg(".$key->id.")'></a></span>"
+                $imagen,
+                "<span><a class='btn btn-info btn-flat fa fa-edit' href='Javascript:changeStatus(".$key->id.")'></a></span><span><a  class='btn btn-info btn-danger fa fa-edit' href='Javascript:openModalStock(".$key->id.",".$key->stock.")'></a></span><span><a class='btn btn-info btn-danger fa fa-camera-retro' href='Javascript:changeStatus(".$key->id.")'></a></span>"
+                
             ];
             array_push($resultados, $resultado);
         }
@@ -170,6 +187,20 @@ class ProductosController extends AdminBaseController
         $codigo = Input::get("categoria");
         $prodcuto = Input::get('prodcuto');
         return $codigo." espacio ".$prodcuto;
-    }    
+    }  
+
+
+    public function ImagenLoad($id)
+    {
+        $producto = Productos::find($id);
+        return "/storage/".$producto->url;
+    }
 
 }
+
+
+
+
+
+
+

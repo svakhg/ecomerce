@@ -4,7 +4,12 @@
 <section class="center slider"  style="z-index:2;">
   @foreach($productos as $key)
     <div>
-      <img src="/img/torrey.png" style="">
+      <?php if($key->url != ""){
+        echo "<img src='/storage/".$key->url."'  style='width:300px;height:220px;'>";
+        }else{
+          echo "<img src='/img/no.png' >";
+        } ?>
+      
       <span>Nombre: {{$key->nombre}}  </span>
       <span>Marca:  {{$key->marca}}   </span><br>
       <span>Modelo: {{$key->modelo}}  </span>
