@@ -6,16 +6,16 @@
 
 
     @foreach($productos as $porduct)
-        <div class="col-md-4" id="box-product" style="text-align:center;line-height:105%;">
+        <div class="col-xs-6 col-sm-3 col-md-4 col-lg-3" id="box-product" style="text-align:center;line-height:105%;">
               <?php if($porduct->url != ""){
                 echo "<img src='/storage/".$porduct->url."'  style='width:50%; height: 190px;'>";
                 }else{
-                  echo "<img src='/img/no.png' style='width:50%;height: 190px;' >";
+                  echo "<img class='img-responsive' src='/img/no.png' style='' >";
                 } ?>
-            
-            <h4>Producto: {{$porduct->nombre}}</h4>
-            <h4>Modelo: {{$porduct->modelo}}</h4>
-            <h4>Marca: {{$porduct->marca}}</h4>
+
+            <p>Producto: {{$porduct->nombre}}</p>
+            <p>Modelo: {{$porduct->modelo}}</p>
+            <p>Marca: {{$porduct->marca}}</p>
             <span>En stock: {{$porduct->stock}}</span>
 
             {{-- <div class="row align-items-center">
