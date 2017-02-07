@@ -27,24 +27,24 @@
             <div class="row justify-content-sm-center" style="text-align:-webkit-center;text-align: -moz-center;">
                 <h5 style="color:white;font-family:Ubuntu; " >Tarjetas de Débito</h5>
 
-                <div class="col-xs-6 col-sm-4 col-md-12 col-lg-12">
-                    <p style="font-family: Ubuntu Condensed;color: thistle;" >Banamex, HSBC, Inbursa, Santander. </p>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p style="font-family: Ubuntu Condensed;color: thistle;" class="foot-description">Banamex, HSBC, Inbursa, Santander. </p>
                 </div>
 
             </div>
             <div class="row justify-content-sm-center" style="text-align:-webkit-center;text-align: -moz-center;">
                 <h5 style="color:white;font-family:Ubuntu; " >Pagos en Efectivo</h5>
 
-                <div class="col-xs-6 col-sm-4 col-md-12 col-lg-12">
-                    <p style="font-family: Ubuntu Condensed;color: thistle;" > OXXO y Banorte  </p>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p style="font-family: Ubuntu Condensed;color: thistle;" class="foot-description"> OXXO y Banorte  </p>
                 </div>
 
             </div>
             <div class="row justify-content-sm-center" style="text-align:-webkit-center;text-align: -moz-center;">
                 <h5 style="color:white;font-family:Ubuntu; " >Meses sin Intereses*</h5>
 
-                <div class="col-xs-6 col-sm-4 col-md-12 col-lg-12">
-                    <p style="text-align: justify;font-family: Ubuntu Condensed;color: thistle;"> Afirme, American Express, Banamex, BanBajío, Banejercito, Banorte, Banca Mifel, Bancomer,
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+                    <p style="text-align: justify;font-family: Ubuntu Condensed;color: thistle;" class="foot-description"> Afirme, American Express, Banamex, BanBajío, Banejercito, Banorte, Banca Mifel, Bancomer,
                          Banregio, Famsa, HSBC, Itaucard, Inbursa, Invex, IXE, Santander, Platinum Card.  </p>
                 </div>
 
@@ -68,9 +68,23 @@
 
 
         </div> --}}
-        <div class="col-md-4" style="text-align:-webkit-center;text-align: -moz-center;">
-            <i class="fa fa-envelope fa-5x fa-footer"></i>
-            <h5 style="color:white;font-family:Ubuntu;">Contáctanos</h5>
+        <div class="col-md-4"  >
+            <div class="" style="text-align:-webkit-center;text-align: -moz-center;">
+                <i class="fa fa-envelope fa-5x fa-footer"></i>
+                <h5 style="color:white;font-family:Ubuntu;">Contáctanos</h5>
+
+            </div>
+            <form style="padding-bottom:20px;">
+                <div class="form-group">
+                    <label for="formGroupExampleInput" style="color:white;font-family:Ubuntu;">Correo Electronico</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese su correo electronico">
+                </div>
+                <div class="form-group"  >
+                    <label for="exampleTextarea" style="color:white;font-family:Ubuntu;">Mensaje:</label>
+                    <textarea  class="form-control" placeholder="Escriba su mensaje" id="exampleTextarea" rows="3"></textarea>
+                </div>
+            </form>
+
 
 
         </div>
