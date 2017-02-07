@@ -1,7 +1,7 @@
 
 <footer>
     <div class="col-md-12" id="info-section">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="" style="text-align:center">
                 <i class="fa fa-exchange fa-5x fa-footer"style="" ></i>
             </div>
@@ -52,8 +52,14 @@
 
 
         </div>
+        <div class="col-md-4" style="text-align:-webkit-center;text-align: -moz-center;" >
+            <i class="fa fa-map-marker fa-5x fa-footer" ></i>
+            <h5 style="color:white;font-family:Ubuntu;">Como localizarnos</h5>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15283.335000906716!2d-93.11466!3d16.735145!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x968f1e04aaa75cb9!2sRefri+Comercial+Marin+Guizar+S.A.+de+C.V.!5e0!3m2!1ses-419!2smx!4v1486195584848" width="auto" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-        <div class="col-md-3">
+
+        </div>
+        {{-- <div class="col-md-4">
             <div class="" style="text-align:center">
                 <i class="fa fa-home fa-5x fa-footer" ></i>
                 <h5>Proyectos</h5>
@@ -61,20 +67,14 @@
 
 
 
-        </div>
-        <div class="col-md-3">
+        </div> --}}
+        <div class="col-md-4" style="text-align:-webkit-center;text-align: -moz-center;">
             <i class="fa fa-envelope fa-5x fa-footer"></i>
-            <h5>Contáctanos</h5>
+            <h5 style="color:white;font-family:Ubuntu;">Contáctanos</h5>
 
 
         </div>
-        <div class="col-md-3">
-            <i class="fa fa-map-marker fa-5x fa-footer" ></i>
-            <h5 style="color:white;font-family:Ubuntu;">Como localizarnos</h5>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15283.335000906716!2d-93.11466!3d16.735145!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x968f1e04aaa75cb9!2sRefri+Comercial+Marin+Guizar+S.A.+de+C.V.!5e0!3m2!1ses-419!2smx!4v1486195584848" width="auto" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-
-        </div>
 
     </div>
 
