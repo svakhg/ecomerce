@@ -66,6 +66,11 @@ Route::get('payment/status', array(
 
 
 Route::group(['prefix' => 'admin'], function() {
+
+	//Ventas
+	Route::controller('/ventas', 'VentasController');
+
+
 	//Productos 
 	//Route::any('/productps/material','ProductosController@TablaMaterial');
 	Route::any('/productos/img/{id}', 'ProductosController@ImagenLoad');
