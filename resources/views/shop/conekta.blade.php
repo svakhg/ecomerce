@@ -8,10 +8,16 @@
   <span class="card-errors"></span>
   <div class="form-row">
     <label>
-      <span>Nombre del tarjetahabiente</span>
-      <input type="text" size="20" data-conekta="card[name]" name="name" />
+      <span>Nombre completo</span>
+      <input type="text" size="20" data-conekta="card[name]" name="name"  value="alan lopez" />
     </label>
   </div>
+  <div class="form-row">
+    <label>
+      <span>Email</span>
+      <input type="email" size="20"  name="email" value="alan@highbits.com" />
+    </label>
+  </div>  
   <div class="form-row">
     <label>
       <span>Número de tarjeta de crédito</span>
@@ -21,34 +27,40 @@
   <div class="form-row">
     <label>
       <span>CVC</span>
-      <input type="text" size="4" data-conekta="card[cvc]" name="cvc" />
+      <input type="text" size="4" data-conekta="card[cvc]" name="cvc" value="123" />
     </label>
   </div>
   <div class="form-row">
     <label>
       <span>Fecha de expiración (MM/AAAA)</span>
-      <input type="text" size="2" data-conekta="card[exp_month]" name="exp_month" />
+      <input type="text" size="2" data-conekta="card[exp_month]" name="exp_month" value="02" />
     </label>
     <span>/</span>
-    <input type="text" size="4" data-conekta="card[exp_year]" name="exp_year" />
+    <input type="text" size="4" data-conekta="card[exp_year]" name="exp_year" value="2018" />
   </div>
 <!-- Información recomendada para sistema antifraude -->
   <div class="form-row">
     <label>
       <span>Calle</span>
-      <input type="text" size="25" data-conekta="card[address][street1]" name="stret" />
+      <input type="text" size="25" data-conekta="card[address][street1]" name="stret" value="enrique segobiano" />
     </label>
   </div>
+  <div class="form-row">
+    <label>
+      <span>Phone</span>
+      <input type="text" size="25"  name="phone" value="604442725" />
+    </label>
+  </div>  
 <div class="form-row">
     <label>
       <span>Colonia</span>
-      <input type="text" size="25" data-conekta="card[address][street2]"  name="colonia" />
+      <input type="text" size="25" data-conekta="card[address][street2]"  name="colonia" value="potinaspack" />
     </label>
   </div>
 <div class="form-row">
     <label>
       <span>Ciudad</span>
-      <input type="text" size="25" data-conekta="card[address][city]" name="city" />
+      <input type="text" size="25" data-conekta="card[address][city]" name="city" value="tuxtla gutierrez" />
     </label>
   </div>
 <div class="form-row">
@@ -60,13 +72,13 @@
 <div class="form-row">
     <label>
       <span>CP</span>
-      <input type="text" size="5" data-conekta="card[address][zip]" name="cp" />
+      <input type="text" size="5" data-conekta="card[address][zip]" name="cp" value="70380" />
     </label>
   </div>
 <div class="form-row">
     <label>
       <span>País</span>
-      <input type="text" size="25" data-conekta="card[address][country]" name="country" />
+      <input type="text" size="25" data-conekta="card[address][country]" name="country" value="mexico" />
     </label>
   </div>
   <button type="submit">¡Pagar ahora!</button>

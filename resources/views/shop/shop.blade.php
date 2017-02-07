@@ -92,7 +92,7 @@
 				<a href="{{route('payment')}}" class="btn btn-primary">
 				 Pagar con Paypal <i class="fa fa-chevron-circle-right"></i>
 				</a>
-				<a href="#" class="btn btn-primary">
+				<a href="/test" class="btn btn-primary">
 				 Pagar con Tarjeta de credio o debito <i class="fa fa-chevron-circle-right"></i>
 				</a>
 			</p>
