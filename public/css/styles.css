@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto|Ubuntu:300i,400,500i');
 /*General styles*/
 ul li{
     list-style: none;
@@ -58,10 +60,14 @@ ul li{
 
 /*Section info*/
 #info-section{
-    background-color: rgb(165, 165, 165);
+    background-color:  #3f51b5;
 
 }
 
+.footer-icons{
+    max-width: 40px;
+    /*width: 40px !important;*/
+}
 
 
 
@@ -96,9 +102,15 @@ ul li{
     transform:scale(1.1);
 
 }
+.fa-footer{
+    color: white;
+}
 .categories{
     /*max-width: 200px;*/
     transition: all .2s ease-in-out;
+}
+.container-categorias{
+    margin-top: 2em;
 }
 .subtitle-categories{
     text-align: center;
