@@ -1,7 +1,7 @@
 
 
-<div class="container-fluid">
-    <h3 id="title">Nuestras Categorias</h3>
+<div class="container-fluid container-categorias">
+    <h3 id="title">Nuestras Categorías</h3>
     <h4 id="subtitle">Empresa chiapaneca de equipos especializados en la industria alimenticia</h4>
     <br>
   <div class="row">
@@ -21,7 +21,7 @@
       </div>
       <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
           <a href="/comprar?extencion=4"><img src="img/icono4.png" class="img-responsive categories" alt=""></a>
-          <h6 style="text-align:center;font-weight:bold"  >Cafetería</h6>
+          <h6 style="text-align:center;font-weight:bold;"  >Cafetería</h6>
 
       </div>
       <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">

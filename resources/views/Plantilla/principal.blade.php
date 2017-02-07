@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>marin-guizar</title>
+        <title>Marin-guizar</title>
 
         <!-- Font Awesome  -->
        <script src="https://use.fontawesome.com/4faa018609.js"></script>
@@ -114,11 +114,11 @@ Carrito <span id="car-total">0</span></a></li>
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <?php
-              for ($i=0; $i < count($sliders) ; $i++) { 
+              for ($i=0; $i < count($sliders) ; $i++) {
                  if($i==0)
                   echo "<li data-target='#carousel-example-generic' data-slide-to='".$i."' class='active'></li>";
                 echo "<li data-target='#carousel-example-generic' data-slide-to='".$i."' ></li>";
-              } 
+              }
             ?>
         </ol>
 
@@ -129,19 +129,19 @@ Carrito <span id="car-total">0</span></a></li>
               <div class="item active">
                 <img src="/storage/{{$key->url}}" alt="...">
                 <div class="carousel-caption">
-                  
+
                 </div>
               </div>
             @else
           <div class="item">
             <img src="/storage/{{$key->url}}" alt="...">
             <div class="carousel-caption">
-            
+
             </div>
           </div>
           @endif
           @endforeach
-          
+
         </div>
 
         <!-- Controls -->
