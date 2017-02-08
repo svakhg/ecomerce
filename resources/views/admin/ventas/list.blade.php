@@ -34,11 +34,11 @@
               <table id="data-table-ventas" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
+                  <th>Nombre Completo</th>
                   <th>Correo</th>
+                  <th>Telefono</th>
                   <th>Total</th>
+                  <th>Fecha</th>
                   <th>Detalles</th>
                 </tr>
                 </thead>
@@ -59,7 +59,7 @@
   </div>
 </div>
 
-<div id="exampleModal" class="modal fade" tabindex="-1" role="dialog">
+<div id="ShowModal" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -114,12 +114,15 @@
             responsive: true,
             processing: true,
             serverSide: true,
-                        
+            ajax:'/admin/ventas/all',
             iDisplayLength: 10
         });    
 
   });
 
+  function Show(arg) {
+    $('#ShowModal').modal('show');    
+  }
 </script>
 
 @stop

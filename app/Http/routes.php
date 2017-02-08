@@ -68,6 +68,7 @@ Route::get('payment/status', array(
 Route::group(['prefix' => 'admin'], function() {
 
 	//Ventas
+	Route::any('/ventas/all','VentasController@getVentas');
 	Route::controller('/ventas', 'VentasController');
 
 
@@ -80,7 +81,6 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::any('/productos/plus/agregar', 'ProductosController@subirUnidad');
 	Route::post('/productos/upload/img/', 'ProductosController@cargarimagen');
 	Route::any('/productos/plus', 'ProductosController@getMaterial');
-
 	Route::controller('/productos', 'ProductosController');
 
 	//Sliders
