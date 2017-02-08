@@ -95,8 +95,12 @@ ul li{
 
 #addCarrito:hover{
     transform: scale(1.2);
-
 }
+
+#addCarrito{
+    transition: all .2s ease-in-out;
+}
+
 
 .categories:hover{
     transform:scale(1.1);

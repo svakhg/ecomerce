@@ -76,8 +76,8 @@
             </div>
             <form style="padding-bottom:20px;">
                 <div class="form-group">
-                    <label for="formGroupExampleInput" style="color:white;font-family:Ubuntu;">Correo Electronico</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese su correo electronico">
+                    <label for="formGroupExampleInput" style="color:white;font-family:Ubuntu;">Correo Electrónico:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese su correo electrónico">
                 </div>
                 <div class="form-group"  >
                     <label for="exampleTextarea" style="color:white;font-family:Ubuntu;">Mensaje:</label>
