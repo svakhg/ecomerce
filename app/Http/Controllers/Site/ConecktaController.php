@@ -12,6 +12,8 @@ use Conekta;
 use Conekta_Charge;
 use Cart;
 use App\Slider;
+use App\Ventas;
+use DB;
 class ConecktaController extends Controller
 {
 
@@ -24,19 +26,44 @@ class ConecktaController extends Controller
 
 
    	public function cargo(Request $request){
+
+
    		$card = $request['conektaTokenId'];
    		$total = 0;
+      
+      foreach (Cart::content() as $row) {
+        $subtotal = 0;
+        $subtotal = $row->qty * $row->price;
+        $total = $total + $subtotal;
+      }
 
-   		foreach (Cart::content() as $row) {
-   			$subtotal = 0;
-   			$subtotal = $row->qty * $row->price;
-   			$total = $total + $subtotal;
-   		}
+      $venta  =  new Ventas();
+      $venta->nombre = $request['name'];
+      $venta->apellido = " no ";
+      $venta->correo = $request['email'];
+      $venta->domicilio = " colonia ".$request['colonia']." cp: ".$request['cp']." calle ".$request['stret'] ;
+   		$venta->ciudad = $request['city'];
+      $venta->estado = $request['state'];
+      $venta->telefono = $request['phone'];
+      $venta->total = $total;
+      $venta->save();
 
-   		//return $total;
-   		$nombre = $request['name'];
-   		//57049.26
 
+
+      $productos = [];
+
+      foreach (Cart::content() as $row) {
+        $subtotal = 0;
+        $subtotal = $row->qty * $row->price;
+        $total = $total + $subtotal;
+        $producto = [ 'id_ventas' => $venta->id,'id_producto' =>$row->id,'cantidad'=>$row->qty,'totalproducto' =>$subtotal];
+        array_push($productos, $producto);
+      }
+
+        
+      DB::table('VProductos')->insert($productos);
+
+   		return "realisado";
 
    		Conekta::setApiKey("key_zsvbxUPRrLGREu8rTqN5aQ");
 		try {

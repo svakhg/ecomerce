@@ -66,7 +66,7 @@
 <div class="form-row">
     <label>
       <span>Estado</span>
-      <input type="text" size="25" data-conekta="card[address][state]" name="state" />
+      <input type="text" size="25" data-conekta="card[address][state]" name="state"  value="chiapas" />
     </label>
   </div>
 <div class="form-row">
