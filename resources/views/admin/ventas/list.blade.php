@@ -64,7 +64,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Deatlles de Venta <div class="overlay"><i class="fa fa-refresh fa-spin"></i></div></h4>
+        <h4 class="modal-title">Deatlles de Venta <div style="color: red:" class="overlay"><i style="color: red;" class="fa fa-refresh fa-spin"></i></div></h4>
       </div>
       <div class="modal-body">
       <div class="content">
@@ -108,8 +108,8 @@
           <table class="table" id="table-ventas">
             <thead>
               <tr>
-                <th>#</th>
                 <th>Producto</th>
+                <th>Marca</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
               </tr>
@@ -146,22 +146,54 @@
   });
 
   function Show(arg) {
+    clean();
+    $('#table-ventas tbody > tr').remove();
     $('#ShowModal').modal('show');
       $.ajax({
         type:'GET',
-        url: '/admin/productos/plus/agregar/?categoria='+cargar+'&argumento=x',
-        data: {prodcuto:product},
+        url: '/admin/ventas/unidad/'+arg,
       beforeSend: function() {
           $('.overlay').show();
       },
       success: function(data) {
-        console.log(data);
+        
+        showme(data[0])
+        for (var i = 0; i < data[1].length; i++) {
+          $("#table-ventas").find('tbody').append('<tr><td>'+data[1][i].nombre+'</td><td>'+data[1][i].marca+'</td><td>'+data[1][i].precio+'</td><td>'+data[1][i].cantidad+'</td>');
+        }
 
       },
       complete: function() {
           $('.overlay').hide();
       }}) 
   }
+
+function showme(data) {
+  //nombre_  correo_ total_ estado_ ciudad_ direccion_  telefono_ fecha_ 
+
+  $('#nombre_').text(data.nombre);
+  $('#correo_').text(data.correo);
+  $('#total_').text(data.total);
+  $('#estado_').text(data.estado);
+  $('#ciudad_').text(data.ciudad);
+  $('#direccion_').text(data.domicilio);
+  $('#telefono_').text(data.telefono);
+  $('#fecha_').text(data.fecha);
+}
+function clean() {
+  //nombre_  correo_ total_ estado_ ciudad_ direccion_  telefono_ fecha_ 
+
+  $('#nombre_').text("");
+  $('#correo_').text("");
+  $('#total_').text("");
+  $('#estado_').text("");
+  $('#ciudad_').text("");
+  $('#direccion_').text("");
+  $('#telefono_').text("");
+  $('#fecha_').text("");
+}
+
+
 </script>
 
 @stop

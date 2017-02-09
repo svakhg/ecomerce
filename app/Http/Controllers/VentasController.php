@@ -63,6 +63,11 @@ class VentasController extends AdminBaseController
         return ["recordsTotal" => $ventas->count(), "recordsFiltered" => $ventas->count(),"data" =>$resultados];
     }
 
+    public function getUnidad($id){
+        $data = DB::select('select * from productos_ecomerce INNER JOIN VProductos ON productos_ecomerce.id = VProductos.id_producto and VProductos.id_ventas  = :id ', ['id' => $id]);
+        $venta =  Ventas::find($id);
+        return [$venta,$data];
+    }
 	/**
 	* Estee s el join a sacar por ventas
 	SELECT * 
