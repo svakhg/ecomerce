@@ -26,6 +26,11 @@ ul li{
 #nav-right-session{
     color: black;
 }
+.navbar .in .nav li {
+   display: block;
+   float: none;
+   width:100%;
+}
 
 
 /*Segunda seccion*/
