@@ -12,20 +12,6 @@ ul li{
 #subtitle{
     text-align: center;
 }
-/*Logo navbar*/
-.nav-logo{
-    width: 90px;
-    display: none;
-}
-
-/*Navbar general*/
-
-.navbar-default{
-    background-color: rgb(123,153, 181);
-}
-#nav-right-session{
-    color: black;
-}
 
 
 /*Segunda seccion*/
