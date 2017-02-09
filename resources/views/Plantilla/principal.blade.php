@@ -50,7 +50,7 @@
 
 
     </head>
-    <body>
+    <header>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -106,6 +106,9 @@ Carrito <span id="car-total">0</span></a></li>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+    </header>
+    <body>
+
         {{-- <div class=" " id='sections' style="background-image:url('{{ asset('img/background.png') }}');height:550px; background-repeat:no-repeat;background-position:center;-webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
