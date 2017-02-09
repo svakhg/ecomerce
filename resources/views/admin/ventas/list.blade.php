@@ -64,35 +64,60 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Subir Nueva Imagen</h4>
+        <h4 class="modal-title">Deatlles de Venta <div class="overlay"><i class="fa fa-refresh fa-spin"></i></div></h4>
       </div>
       <div class="modal-body">
-
-            <form id="uploadimage" role="form"  action="/admin/sliders/upload" method="POST" enctype="multipart/form-data">
-            
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nombre</label>
-                  <input type="text" class="form-control"  name="nombre" placeholder="Nombre">
-                </div>              
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Descripcion</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1"  name="description" placeholder="Descripcion">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">Imagen</label>
-                  <input id="imgInp" type="file" name="imagen" >
-
-                  <p class="help-block">Imagen.</p>
-                </div>
-                <img  id="blah" src="#" alt="your image" style="width: 300px;width: 300px;" />
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Subir</button>
-              </div>
-            </form>
+      <div class="content">
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-md-4">
+            <span class="fa fa-user" ></span><label>Nombre</label><br>
+            <span id="nombre_"></span>
+          </div>
+          <div class="col-md-4">
+            <span class="fa fa-envelope" ></span><label>Correo</label><br>
+            <span id="correo_"></span>
+          </div>
+          <div class="col-md-4">
+            <span class="fa fa-money" ></span><label>Total</label><br> 
+            <span id="total_"></span>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 20px;"> 
+          <div class="col-md-3">
+            <span class="fa fa-map-pin" ></span><label>Estado</label><br>
+             <span id="estado_"></span>
+          </div>
+          <div class="col-md-3">
+            <span class="fa fa-map" ></span><label>Ciudad</label><br>
+            <span id="ciudad_"></span>
+          </div>
+          <div class="col-md-6">
+            <span class="fa fa-map-marker" ></span><label>Direccion</label><br>
+            <span id="direccion_"></span>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-md-3"><span class="fa fa-phone" ></span><label>Telefono</label><br>
+            <span id="telefono_"></span>
+          </div>
+          <div class="col-md-3"><span class="fa fa-calendar" ></span><label>Fecha</label><br>
+            <span id="fecha_"></span>
+          </div>
+          
+        </div>
+          <table class="table" id="table-ventas">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -121,7 +146,21 @@
   });
 
   function Show(arg) {
-    $('#ShowModal').modal('show');    
+    $('#ShowModal').modal('show');
+      $.ajax({
+        type:'GET',
+        url: '/admin/productos/plus/agregar/?categoria='+cargar+'&argumento=x',
+        data: {prodcuto:product},
+      beforeSend: function() {
+          $('.overlay').show();
+      },
+      success: function(data) {
+        console.log(data);
+
+      },
+      complete: function() {
+          $('.overlay').hide();
+      }}) 
   }
 </script>
 
