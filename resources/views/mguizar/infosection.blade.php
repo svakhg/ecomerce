@@ -10,7 +10,7 @@
             <div class="row justify-content-sm-center" style="text-align:-webkit-center;text-align: -moz-center;" >
                 <h5 style="color:white;font-family:Ubuntu;" >Tarjetas de Crédito</h5>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align: -moz-center;text-align:-webkit-center;">
-                    <img class="img-responsive footer-icons" src="img/visa-icon.png" alt="">
+                    <img class="img-responsive footer-icons" src="img/Visa-icon.png" alt="">
 
                 </div>
 
