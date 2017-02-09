@@ -68,7 +68,7 @@
 
 
         </div> --}}
-        <div class="col-md-4"  >
+        <div class="col-md-4 center-block"  >
             <div class="" style="text-align:-webkit-center;text-align: -moz-center;">
                 <i class="fa fa-envelope fa-5x fa-footer"></i>
                 <h5 style="color:white;font-family:Ubuntu;">Contáctanos</h5>
@@ -82,6 +82,11 @@
                 <div class="form-group"  >
                     <label for="exampleTextarea" style="color:white;font-family:Ubuntu;">Mensaje:</label>
                     <textarea  class="form-control" placeholder="Escriba su mensaje" id="exampleTextarea" rows="3"></textarea>
+                </div>
+                <div class="form-group ">
+
+                    <button type="button" class="btn btn-default center-block navbar-btn">Enviar</button>
+
                 </div>
             </form>
 

@@ -18,4 +18,4 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 
-// $('.collapse').collapse()
+$('.collapse').collapse()
