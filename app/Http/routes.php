@@ -67,6 +67,9 @@ Route::get('payment/status', array(
 
 Route::group(['prefix' => 'admin'], function() {
 
+
+	Route::any('/inbox/all', 'MensajesController@getMensajes');
+	Route::controller('/inbox', 'MensajesController');
 	//Ventas
 	Route::any('/ventas/unidad/{id}','VentasController@getUnidad');
 	Route::any('/ventas/all','VentasController@getVentas');
