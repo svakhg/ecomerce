@@ -34,7 +34,7 @@
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="thumbnail" style="padding: 0">
             <div style="padding:4px">
-              <img alt="300x200" style="width: 100%" src="img/testimg1.jpg">
+              <img alt="300x200" style="width: 100%" src="img/torrey.png">
             </div>
 
             <div class="modal-footer" style="text-align: left">
