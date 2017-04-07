@@ -97,6 +97,7 @@ ul li{
 }
 
 
+.transition-width { transition: width 1s ease-out; webkit-transition: width 1s ease-out; }
 
 #addCarrito:hover{
     transform: scale(1.2);
