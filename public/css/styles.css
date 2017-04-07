@@ -146,6 +146,38 @@ ul li{
 
 }
 
+
+.col-woverflow{
+    overflow: hidden;
+}
+.col-wpading{
+    padding: 0;
+}
+.img-fit{
+    object-fit: cover;
+height: 100%;
+width: 100%;
+}
+.thumbnail{
+    box-shadow: 10px 10px 5px #888888;
+}
+
+@media only screen and (max-width: 400px) {
+    p{
+        font-size:xx-small !important;
+        
+    }
+}
+@media only screen and (max-width: 1029px) {
+    p{
+        font-size: smaller;
+
+    }
+}
+
+
+
+
 @media only screen and (max-width: 990px) {
     .foot-description{
         text-align: center !important;
