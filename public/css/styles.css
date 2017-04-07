@@ -21,7 +21,8 @@ ul li{
 /*Navbar general*/
 
 .navbar-default{
-    background-color: rgb(123,153, 181);
+    /*background-color: rgb(123,153, 181);*/
+    background-color: steelblue;
 }
 #nav-right-session{
     color: black;
@@ -165,7 +166,7 @@ width: 100%;
 @media only screen and (max-width: 400px) {
     p{
         font-size:xx-small !important;
-        
+
     }
 }
 @media only screen and (max-width: 1029px) {
