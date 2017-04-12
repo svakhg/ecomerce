@@ -33,7 +33,7 @@ class AdminBaseController extends BaseController
     public function setContent($view, $data = [], $section = "Home")
     {
 
-        
+
         $this->layout->section = $section;
         return $this->layout->nest('child', $view, $data);
     }    

@@ -83,7 +83,7 @@
 
 
                         <div class="col-xs-8 col-sm-8 col-md-8" style="">
-                            <h4>{{$porduct->precio}}</h4>
+                            <h4>${{$porduct->precio}}</h4>
 
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4">
