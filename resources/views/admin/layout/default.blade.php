@@ -180,9 +180,6 @@
           <a href="/admin/inbox">
             <i class="fa fa-envelope"></i> <span>Mensajes</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
             </span>
           </a>
         </li>
@@ -209,7 +206,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0 Alpha
     </div>
-    <strong>Copyright &copy; 2017 <a href="http://almsaeedstudio.com">Alan Zabalegui</a>.</strong> All rights
+    <strong>Copyright &copy; 2017 <a href="http://almsaeedstudio.com">Highbits.com</a>.</strong> All rights
     reserved.
   </footer>
 

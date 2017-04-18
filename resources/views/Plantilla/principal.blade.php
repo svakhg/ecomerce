@@ -55,7 +55,8 @@
           }
           </style>
 
-
+          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
 
     <body>
@@ -93,7 +94,7 @@
                         </ul> -->
                         <form class="navbar-form navbar-left">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Buscar" >
+                                <input id="search" type="text" class="form-control" placeholder="Buscar" >
                             </div>
                             <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden=""></i></button>
                         </form>
@@ -230,6 +231,36 @@ $(document).on('ready', function() {
     infinite: true,
     variableWidth: true
   });
+
+   var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#search" ).autocomplete({
+      source: availableTags
+    });
+
+
 });
 </script>
 
