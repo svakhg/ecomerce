@@ -92,9 +92,7 @@
 
 
                         <div class="col-xs-12 col-sm-12 col-md-12" style="" >
-                            <p style="text-align:justify">Descripcion Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                 ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                 in reprehenderit in voluptate velit esse cil lorem</p>
+                            <p style="text-align:justify">{{$porduct->descripcion}}</p>
 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12" style="" >

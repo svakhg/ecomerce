@@ -98,7 +98,7 @@ class ProductosController extends AdminBaseController
         $producto->marca = $material->MARCA;
         $producto->modelo =$material->MODELO;
         $producto->precio = $material->precioventa3;
-        $producto->descripcion = "";
+        $producto->descripcion = $material->DESCRIPCION;
         $producto->status = 0;
         $producto->stock = 0;
         $producto->categoria = $codigo;

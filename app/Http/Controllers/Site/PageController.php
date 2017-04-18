@@ -35,7 +35,7 @@ class PageController extends Controller
         $slider = Slider::all();
         $categoria = Input::get('extencion');
         $productos = Productos::where('categoria',$categoria)->get();
-        
+       
     	return view('mguizar.materiales')->with('productos',$productos)->with('sliders',$slider);
     }
 }
