@@ -32,12 +32,7 @@
   
   <link rel="stylesheet" href="{{ asset('subadmin/alerts/sweetalert2.min.css')}}">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+
   @yield('css')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -175,7 +170,13 @@
           </a>
 
         </li>
-
+        <li>
+          <a href="/admin/inbox">
+            <i class="fa fa-envelope"></i> <span>Entregas</span>
+            <span class="pull-right-container">
+            </span>
+          </a>
+        </li>
         <li>
           <a href="/admin/inbox">
             <i class="fa fa-envelope"></i> <span>Mensajes</span>
@@ -189,6 +190,13 @@
             <i class="fa fa-photo"></i> <span>Sliders</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/inbox">
+            <i class="fa fa-envelope"></i> <span>Usuarios</span>
+            <span class="pull-right-container">
             </span>
           </a>
         </li>
