@@ -20,4 +20,7 @@ class Personalcontroller extends AdminBaseController
         $this->layout->section = "Personal";
         return $this->setContent('admin.usuario.list', array(), "Personal");
     }
+
+
+    
 }
