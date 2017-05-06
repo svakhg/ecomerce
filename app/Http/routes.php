@@ -74,7 +74,9 @@ Route::group(['prefix' => 'admin'], function() {
 	//Envios
 
 	Route::controller('/envios', 'EnviosController');
-	
+
+	//personal
+	Route::controller('/personal', 'PersonalController');
 
 
 	//Ventas
