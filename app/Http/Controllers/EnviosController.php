@@ -20,4 +20,9 @@ class EnviosController extends AdminBaseController
         $this->layout->section = "Inicio";
         return $this->setContent('admin.envios.list', array(), "Envios");
     }
+
+    public function getEnvios($value='')
+    {
+    	# code...
+    }
 }

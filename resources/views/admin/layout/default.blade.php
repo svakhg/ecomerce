@@ -138,7 +138,7 @@
       <ul class="sidebar-menu">
         <li class="header">Navegacion</li>
         <li class="active treeview">
-          <a href="/admin/InicioController">
+          <a href="/admin">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
