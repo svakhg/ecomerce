@@ -96,7 +96,7 @@
 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12" style="" >
-                            <br>
+                            
                             <button id="addCarrito" type="button" class="btn btn-success"><a style="color:white !important;" class="addcart" href="/cart/add/{{$porduct->id}}" data-id="{{$porduct->id}}">Añadir a carrito</a></button>
                             <br><br>
                         </div>

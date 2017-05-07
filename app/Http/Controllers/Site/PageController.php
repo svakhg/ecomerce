@@ -33,7 +33,7 @@ class PageController extends Controller
     public function getByCat()
     {
         $slider = Slider::all();
-        $categoria = Input::get('extencion');
+        $categoria = Input::get('extension');
         $productos = Productos::where('categoria',$categoria)->get();
        
     	return view('mguizar.materiales')->with('productos',$productos)->with('sliders',$slider);
