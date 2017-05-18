@@ -58,13 +58,48 @@
 
          </div> --}}
 
+                            
 @foreach($productos as $porduct)
 {{-- Inicio Product-Grid --}}
     <div class="col-xs-12 col-sm-6 col-md-6 transition-width" style="height:380px;background-color:;padding:15px">
         <div class="thumbnail" style="height:100%;width:100%">
 
-                <div class="col-xs-5 col-sm-5 col-md-5 col-wpading" style="height:100%;background-color:orange">
-                    <img src="img/torrey.png" class="img-responsive img-fit" alt="">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-wpading" style="height:100%;">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                <img src="img/torrey.png" class="img-fit img-responsive" alt="">
+                                {{-- <div class="carousel-caption">
+                                    ...
+                                </div> --}}
+                                </div>
+                                <div class="item">
+                                 <img src="img/torrey.png" class="img-fit img-responsive"  alt="">
+                                {{-- <div class="carousel-caption">
+                                    ...
+                                </div> --}}
+                                </div>
+                                
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            </div>
 
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7" style="height:100%;background-color:">
@@ -96,7 +131,7 @@
 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12" style="" >
-                            <br>
+                            
                             <button id="addCarrito" type="button" class="btn btn-success"><a style="color:white !important;" class="addcart" href="/cart/add/{{$porduct->id}}" data-id="{{$porduct->id}}">Añadir a carrito</a></button>
                             <br><br>
                         </div>
@@ -115,7 +150,10 @@
 
 
 
+<script>
+$('.carousel').carousel()
 
+</script>
 
 
 
