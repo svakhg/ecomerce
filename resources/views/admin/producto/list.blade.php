@@ -90,12 +90,16 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+
+
+
 <div id="exampleModal2" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Cargar Stock &nbsp  </h4>
+        <h4 class="modal-title">Cargar Imagen &nbsp  </h4>
       </div>
       <div class="modal-body">
             
@@ -106,9 +110,12 @@
                 </div>
                 <div class="form-group">
                     <label>Imagen</label>
-                    <input type="file" name="img">  
+                    <input type="file" id="file" name="file[]" multiple class="form-control">
                 </div>
-              
+
+                <div id="output"></div>
+                <div id="vista-previa"></div>
+                <div id="respuesta"></div> 
 
               </div>
               <!-- /.box-body -->
@@ -125,6 +132,10 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+
+
+
 <div id="modalImgen" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -133,19 +144,15 @@
         <h4 class="modal-title">Imagen de producto &nbsp  </h4>
       </div>
       <div class="modal-body">
-                          <div class="overlay2">
-                      <i class="fa fa-refresh fa-spin"></i>
-                    </div>  
-           <div class="box-body">
-             <img id="cargarImagenModal" src="/img/no.png">
-           </div>
-              
+        <div class="overlay2">
+          <i class="fa fa-refresh fa-spin"></i>
+        </div>  
+        <div class="box-body">
+          <img id="cargarImagenModal" src="/img/no.png">
+        </div>
       </div>
-      <div class="modal-footer">   
-      
-        
-      </div>
-    </div><!-- /.modal-content -->
+    <div class="modal-footer"></div>
+  </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
@@ -234,35 +241,36 @@ function mostrarImg(argument) {
    function changeStatus(argument) {
       $('#exampleModal2').modal('show');
       $('#identificador').val(argument);
-
-
-
-
-
-
-
-
-
-
-      /*
-    $( "#sendimg" ).submit(function( event ) {
-          alert("ok");
-            $.ajax({
-              type:'POST',
-              url: '/admin/productos/upload/img/',
-              data:new FormData(this),
-            success: function(data) {
-              console.log(data);
-                alert("oki");
-            }
-        })
-
-
-      event.preventDefault();
-    });*/
+      alert(argument);
    }
  
-
+   $("#file").on("change", function(){
+       /* Limpiar vista previa */
+       $("#vista-previa").html('');
+       var archivos = document.getElementById('file').files;
+       var navegador = window.URL || window.webkitURL;
+       /* Recorrer los archivos */
+       for(x=0; x<archivos.length; x++)
+       {
+           /* Validar tamaño y tipo de archivo */
+           var size = archivos[x].size;
+           var type = archivos[x].type;
+           var name = archivos[x].name;
+           if (size > 512*512)
+           {
+               $("#vista-previa").append("<p style='color: red'>El archivo "+name+" supera el máximo permitido 1MB->"+size+"</p>");
+           }
+           else if(type != 'image/jpeg' && type != 'image/jpg' && type != 'image/png')
+           {
+               $("#vista-previa").append("<p style='color: red'>El archivo "+name+" no es del tipo de imagen permitida.</p>");
+           }
+           else
+           {
+             var objeto_url = navegador.createObjectURL(archivos[x]);
+             $("#vista-previa").append("<img src="+objeto_url+" width='200' height='200'>");
+           }
+       }
+   });
 
 </script>
 

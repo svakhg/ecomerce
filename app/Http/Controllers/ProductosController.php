@@ -113,6 +113,9 @@ class ProductosController extends AdminBaseController
     }
 
     public function cargarimagen(Request $request){
+        dd($request);
+
+
         $id = $request['identificador'];
         $producto = Productos::find($id);
         $file = $request->file('img');

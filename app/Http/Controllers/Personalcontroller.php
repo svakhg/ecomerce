@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 class Personalcontroller extends AdminBaseController
 {
+
+	//table name:  ecomerce_personal
      public function __construct()
     {
         
@@ -21,6 +23,14 @@ class Personalcontroller extends AdminBaseController
         return $this->setContent('admin.usuario.list', array(), "Personal");
     }
 
+
+    public function NewUser(){
+
+    }
+
+    public function ShutDown(){
+    	
+    }
 
     
 }
